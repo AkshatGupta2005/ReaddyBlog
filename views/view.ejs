@@ -1,0 +1,16 @@
+<%- include('./partials/header.ejs') %>
+  <% if (locals.thisPost) { %>
+  <div class="viewBox">
+    <div class="hdn rbt noBorder postBorder viewsTitle"><%= thisPost[0] %></div>
+    <div class="pts cnt noBorder postBorder viewsContent"><%= thisPost[1]%></div>
+    <div class="options">
+      <form action="/update/<%=index %>" method="post">
+        <input type="submit" class="btn hdn fntColor updateBox viewsBtn" value="Update Post">
+      </form>
+      <form action="/delete/<%= index %>" method="post">
+        <input type="submit" id="deletePost" class="btn hdn fntColor deleteBox" value="Delete Post"/>
+      </form> 
+    </div>
+  </div>
+  <% } %>
+<%- include('./partials/footer.ejs') %>

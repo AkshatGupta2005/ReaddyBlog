@@ -1,0 +1,37 @@
+<%- include('./partials/header.ejs') %> 
+<% if (locals.post) { %>
+    <% if (post.length == 0) { %>
+        <h1 class="rbt hdn">This page Feels emptier than your life. While your life isn't easy to fill, this blog is. Unleash your thoughts and let your words flow.</h1>
+        <% } else { %>
+        <ul>
+            <% post.forEach((posts,index) => { %>
+                
+                <a href="/views/<%= index %>" class="noUnderLine">
+                    <div class="fntColor box">
+                        <li class="liStyle">
+                            <div>
+                                <div class="title rbt hdn"><%- posts[0] %></div>
+                                <div class="content pts cnt">
+                                <% if (posts[1].length > 500) { %>
+                                    <%= posts[1].slice(0,500)%>
+                                    <span class="dullClr"> ...</span>
+                                <% } else { %>
+                                    <%= posts[1] %>
+                                <% } %>
+                            </div>
+                            <div class="txtBox">
+                                <div class="time rbt cnt dullClr dateBox"><%= posts[2] %></div>
+                                    <% if (posts[3]) { %>
+                                        <div class="rbt cnt dullClr sbmBox"><%= posts[3] %></div>
+                                    <% } %>
+                    
+                                </div>
+                            </div>    
+                        </li>
+                    </div>
+                </a>
+            <% }) %>    
+        </ul>
+    <% } %>
+<% } %>
+<%- include('./partials/footer.ejs') %>

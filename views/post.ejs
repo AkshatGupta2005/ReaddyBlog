@@ -1,0 +1,45 @@
+<%- include('./partials/header.ejs') %> <% if (locals.post && locals.index) { %>
+<form action="/updatePost/<%= index %>" method="post">
+  <div class="postBox">
+    <input
+      type="text"
+      name="title"
+      value="<%= post[0]%>"
+      class="hdn rbt noBorder postBorder titleBox gry"
+      required
+    />
+    <textarea
+      type="text"
+      name="content"
+      class="cnt pts noBorder postBorder contentBox gry"
+      required
+    ><%= post[1] %></textarea>
+    <div class="postBoxBtn">
+      <input type="submit" value="Update Post" class="btn rbt hdn submitBtn" />
+    </div>
+  </div>
+</form>
+<% } else { %>
+<form action="/save" method="post">
+  <div class="postBox">
+    <input
+      type="text"
+      name="title"
+      placeholder="Title your Thoughts"
+      class="hdn rbt noBorder postBorder titleBox gry"
+      required
+    />
+    <textarea
+      type="text"
+      name="content"
+      placeholder="Unleash your thoughts"
+      class="cnt pts noBorder postBorder contentBox gry"
+      required
+      contenteditable="true"
+    ></textarea>
+    <div class="postBoxBtn">
+      <input type="submit" value="Create Post" class="btn rbt hdn submitBtn" />
+    </div>
+  </div>
+</form>
+<% } %> <%- include('./partials/footer.ejs') %>
